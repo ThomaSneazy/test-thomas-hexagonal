@@ -1,8 +1,18 @@
-<h1>Desks#index</h1>
-<p>Find me in app/views/desks/index.html.erb</p>
+<h1>Coworking space</h1>
 
-<% @desks.each do |desk| %>
-  <%= link_to desk_path(desk), :action => 'go' do %>
-      <p><%= desk.name %></p>
+<%= simple_form_for [@desk, @request] do |f| %>
+    <%= f.input :name, label: "Nom & Prénom", placeholder: 'Charlie Chaplin...' %>
+    <%= f.input :email, label: "Email" , placeholder: 'c.chaplin@gmail.com...' %>
+    <%= f.input :phone_number, label: "Numéro de téléphone" , placeholder: '0033, +33, 07...' %>
+    <%= f.input :briography, label: "Petit mot sur vous et votre entreprise", placeholder: 'Nous sommes travaillons avec les acteurs...' %>
+    <%= f.submit "S'inscrire en liste d'attente", class: "btn btn-dark" %>
   <% end %>
+<%= simple_form_for [@desk, @request] do  |f| %>
+  <%= f.button :submit, 'Réserver', class: "text-center btn btn-danger" %>
 <% end %>
+
+<%# @desks.each do |desk| %>
+  <%#= link_to desk_path(desk), :action => 'go' do %>
+      <p><%#= desk.name %></p>
+  <%# end %>
+<%# end %>

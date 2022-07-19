@@ -8,7 +8,4 @@ class DesksController < ApplicationController
     @desk = Desk.find(params[:id])
     @request = Request.new
   end
-
-
-
 end

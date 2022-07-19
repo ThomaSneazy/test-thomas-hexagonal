@@ -13,7 +13,7 @@ class RequestsController < ApplicationController
       @request.status = "unconfirmed"
     end
     if @request.save!
-      redirect_to desk_path(@desk.id)
+      redirect_to desk_path(@desk.id), notice: "Your request is confirmed"
     else
       redirect_to desks_path
     end
@@ -21,6 +21,4 @@ class RequestsController < ApplicationController
 
   def show
   end
-
-  private
 end

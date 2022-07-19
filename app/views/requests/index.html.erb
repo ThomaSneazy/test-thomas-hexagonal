@@ -1,2 +1,7 @@
-<h1>Requests#index</h1>
-<p>Find me in app/views/requests/index.html.erb</p>
+<%= simple_form_for(@request) do |f| %>
+    <%= f.input :name, label: "Nom & Prénom", placeholder: 'Charlie Chaplin...' %>
+    <%= f.input :email, label: "Email" , placeholder: 'c.chaplin@gmail.com...' %>
+    <%= f.input :phone_number, label: "Numéro de téléphone" , placeholder: '0033, +33, 07...' %>
+    <%= f.input :briography, label: "Petit mot sur vous et votre entreprise", placeholder: 'Nous sommes travaillons avec les acteurs...' %>
+    <%= f.submit "S'inscrire en liste d'attente", class: "btn btn-dark" %>
+  <% end %>
