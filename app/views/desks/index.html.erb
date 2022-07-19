@@ -3,6 +3,6 @@
 
 <% @desks.each do |desk| %>
   <%= link_to desk_path(desk), :action => 'go' do %>
-      <h3><%= desk.name %></h3>
+      <p><%= desk.name %></p>
   <% end %>
 <% end %>
