@@ -1,0 +1,8 @@
+<h1>Desks#index</h1>
+<p>Find me in app/views/desks/index.html.erb</p>
+
+<% @desks.each do |desk| %>
+  <%= link_to desk_path(desk), :action => 'go' do %>
+      <h3><%= desk.name %></h3>
+  <% end %>
+<% end %>
