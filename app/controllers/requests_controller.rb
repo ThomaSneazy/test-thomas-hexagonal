@@ -1,24 +1,36 @@
 class RequestsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :create, :new]
   def index
+    @request = Request.new
+  end
+
+  def new
+    @request = Request.new
   end
 
   def create
-    @request = Request.new
-    @desk = Desk.find(params[:desk_id])
-    @request.desk = @desk
-    @request.user_id = current_user.id
-    if current_user.confirmed?
-      @request.status = "confirmed"
+    @request = Request.new(request_params)
+    # @request.user_id = current_user.id
+    # if current_user.confirmed?
+    #   @request.status = "confirmed"
+    # else
+    #   @request.status = "unconfirmed"
+    # end
+    if @request.save
+      mail = RequestMailer.with(request: @request).create_confirmation
+      mail.deliver_now
+      redirect_to root_path
     else
-      @request.status = "unconfirmed"
-    end
-    if @request.save!
-      redirect_to desk_path(@desk.id), notice: "Your request is confirmed"
-    else
-      redirect_to desks_path
+      render :new
     end
   end
 
   def show
+  end
+
+  private
+
+  def request_params
+    params.require(:request).permit(:name, :email, :phone_number, :biography)
   end
 end
