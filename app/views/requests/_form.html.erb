@@ -1,0 +1,18 @@
+<div class="container">
+<h1>Réservez votre espace de CoWorking!</h1>
+  <%= simple_form_for @request, required: true do |f| %>
+    <div class="form-wrapper" style="width: 400px; margin: 30px auto;">
+      <%= f.input :name, label: "Nom & Prénom",
+                  placeholder: 'Charlie Chaplin...'%>
+      <%= f.input :email, label: "Email" ,
+                  placeholder: 'c.chaplin@gmail.com...'%>
+      <%= f.input :phone_number, label: "Numéro de téléphone" ,
+                  placeholder: '0033, +33, 07...' %>
+      <%= f.input :biography, label: "Quelques mots sur vous et votre entreprise",
+                  placeholder: 'Nous travaillons avec les acteurs...'%>
+    <div class="text-center" style="margin: 30px ">
+      <%= f.submit "S'inscrire en liste d'attente", class: "btn btn-dark" %>
+    </div>
+    <% end %>
+    </div>
+</div>
