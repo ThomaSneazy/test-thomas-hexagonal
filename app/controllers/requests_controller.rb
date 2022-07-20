@@ -10,11 +10,10 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
-    # @request.user_id = current_user.id
-    # if current_user.confirmed?
-    #   @request.status = "confirmed"
+    # if request.email.confirmed?
+    #   @request.email = "confirmed"
     # else
-    #   @request.status = "unconfirmed"
+    #   @request.email = "unconfirmed"
     # end
     if @request.save
       mail = RequestMailer.with(request: @request).create_confirmation
