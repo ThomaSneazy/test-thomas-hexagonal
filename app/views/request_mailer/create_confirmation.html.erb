@@ -1,5 +1,6 @@
-<p>Hi <%= @request.email %>,</p>
+<h1> Vous avez besoin de confirmer votre email pour entrer en liste d'attente,
+votre adresse mail est : <%= @request.email %>.</h1>
 
-<p>Today we'll talk about SMTP and Postmark!</p>
+<h1> Pour confirmer celle-ci cliquez <%= link_to 'ICI', request_confirm_email_url(@request) %> .</h1>
 
-<p>See ya!</p>
+<h1>Merci !</h1>
