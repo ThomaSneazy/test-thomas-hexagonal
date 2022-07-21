@@ -1,6 +1,6 @@
-<p> Vous avez besoin de confirmer votre email pour entrer en liste d'attente,
-votre adresse mail est : <%= @request.email %>.</p>
+<h1> Vous avez besoin de confirmer votre email pour entrer en liste d'attente,
+votre adresse mail est : <%= @request.email %>.</h1>
 
-<p> Pour confirmer celle-ci cliquez ICI.</p>
+<h1> Pour confirmer celle-ci cliquez <%= link_to 'ICI', request_confirm_email_url(@request) %> .</h1>
 
-<p>Merci !</p>
+<h1>Merci !</h1>

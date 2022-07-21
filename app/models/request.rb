@@ -4,8 +4,8 @@ class Request < ApplicationRecord
   validates :email, :phone_number, :biography, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :phone_number, format: { with: /(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}/ }
-  # validates :status, presence: true, inclusion: { in: %w(unconfirmed confirmed accepted expried),
-  #   message: "Not a valid status" }
+  validates :status, presence: true, inclusion: { in: %w(unconfirmed confirmed),
+  message: "Not a valid status" }
   after_create :send_welcome_email
 
   private
